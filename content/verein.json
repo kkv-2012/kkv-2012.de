@@ -1,0 +1,27 @@
+{
+  "name": "Kürtener Karnevalsverein von 2012 e.V.",
+  "kurz": "KKV Kürten",
+  "motto": "Morje es, wat mer drus mahe",
+  "mottoHinweis": "Sessionsmotto 2026/2027",
+  "zugMotto": "Mir dun et för et Dörp",
+  "ordenBild": "/bilder/orden-2026-27.jpg",
+  "untertitel": "Brauchtum, Frohsinn und Gemeinschaft in Kürten – seit 2012.",
+  "email": "peter.adelt@web.de",
+  "instagram": "kkv_von_2012",
+  "anschrift": "Kürtener Karnevalsverein von 2012 e.V.\nc/o Peter Adelt\nHachenberger Weg 11 A\n51515 Kürten",
+  "vorstand": "Peter Adelt (1. Vorsitzender), André van Herpt (2. Vorsitzender), Lisa Spiegel (Kassiererin)",
+  "register": "Vereinsregister beim Amtsgericht Köln, Blatt VR 17655",
+  "finanzamt": "Finanzamt Bergisch Gladbach, Steuernummer 204/5834/0477",
+  "konten": [
+    {
+      "bank": "Kreissparkasse Köln",
+      "iban": "DE48 3705 0299 0320 5528 30",
+      "bic": "COKSDE33XXX"
+    },
+    {
+      "bank": "Volksbank Berg eG",
+      "iban": "DE04 3706 9125 0014 2860 12",
+      "bic": "GENODED1RKO"
+    }
+  ]
+}

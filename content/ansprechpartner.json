@@ -1,0 +1,53 @@
+{
+  "einleitung": "Wer hilft wobei? Hier findet ihr die richtige Person für euer Anliegen.",
+  "liste": [
+    {
+      "bereich": "1. Vorsitzender",
+      "name": "Peter Adelt",
+      "email": "peter.adelt@web.de",
+      "telefon": "",
+      "info": "Vereinsleitung, Sessionsheft und Anzeigen, allgemeine Anfragen.",
+      "unvollstaendig": false
+    },
+    {
+      "bereich": "2. Vorsitzender",
+      "name": "André van Herpt",
+      "email": "andrevanherpt@yahoo.de",
+      "telefon": "",
+      "info": "Stellvertretung, Veranstaltungen.",
+      "unvollstaendig": false
+    },
+    {
+      "bereich": "Kassiererin",
+      "name": "Lisa Spiegel",
+      "email": "lisa.spiegel96@yahoo.com",
+      "telefon": "",
+      "info": "Kasse, Spenden, Zuwendungsbestätigungen, Rechnungen.",
+      "unvollstaendig": false
+    },
+    {
+      "bereich": "Mitgliederbetreuung / Geschäftsführung",
+      "name": "Sebastian Biesenbach",
+      "email": "sebastian.biesenbach@gmail.com",
+      "telefon": "",
+      "info": "Mitgliedsanträge, Beiträge, Adressänderungen.",
+      "unvollstaendig": false
+    },
+    {
+      "bereich": "Zugleitung",
+      "name": "Robert Bechtel",
+      "email": "robert.bechtel@online.de",
+      "telefon": "0157 57229780",
+      "info": "Anmeldung von Gruppen und Wagen zum Kürtener Karnevalszug, Zugordnung.",
+      "unvollstaendig": false
+    },
+    {
+      "bereich": "Sessionsheft & Anzeigen",
+      "name": "Peter Adelt",
+      "email": "peter.adelt@web.de",
+      "telefon": "",
+      "info": "Anzeigenaufträge, Druckvorlagen, Redaktion des Sessionshefts.",
+      "unvollstaendig": false
+    }
+  ]
+}

@@ -1,0 +1,140 @@
+# Redaktionssystem (Sveltia CMS) – Einstellungen
+# Anmeldung läuft über GitHub, der Login wird von Netlify vermittelt (siehe Go-Live-Anleitung).
+# Nur die Zeile "repo" muss bei der Einrichtung angepasst werden.
+backend:
+  name: github
+  repo: VEREINS-GITHUB-NAME/kkv-2012.de   # <- anpassen: GitHub-Benutzer/Repository
+  branch: main
+  base_url: https://api.netlify.com
+
+site_url: https://kkv-2012.de
+display_url: https://kkv-2012.de
+logo_url: /bilder/logo.jpg
+locale: de
+
+media_folder: bilder
+public_folder: /bilder
+
+collections:
+  - name: inhalte
+    label: Inhalte der Webseite
+    files:
+
+      - name: instagram
+        label: "Start: Instagram"
+        file: content/instagram.json
+        fields:
+          - { name: einleitung, label: Einleitungstext, widget: string }
+          - name: beitraege
+            label: Instagram-Beiträge (neueste zuerst)
+            label_singular: Beitrag
+            widget: list
+            summary: "{{fields.link}}"
+            hint: "Im Instagram-Beitrag auf „…“ → „Link kopieren“ und hier als neuen Eintrag ganz oben einfügen. Empfohlen: 6 bis 9 Einträge."
+            fields:
+              - { name: link, label: Link zum Beitrag, widget: string, pattern: ['instagram\.com/', 'Bitte einen Instagram-Link eintragen'] }
+          - { name: widgetCode, label: "Feed-Widget-Code (optional, z. B. LightWidget)", widget: text, required: false, hint: "Nur ausfüllen, wenn ein automatischer Feed eingerichtet wurde. Dann werden die Einzel-Beiträge oben ignoriert." }
+
+      - name: termine
+        label: Termine
+        file: content/termine.json
+        fields:
+          - { name: einleitung, label: Einleitungstext, widget: string }
+          - name: liste
+            label: Termine
+            label_singular: Termin
+            widget: list
+            summary: "{{fields.datum}} – {{fields.titel}}"
+            fields:
+              - { name: datum, label: Datum, widget: datetime, format: "YYYY-MM-DD", date_format: "DD.MM.YYYY", time_format: false, picker_utc: true }
+              - { name: titel, label: Titel, widget: string }
+              - { name: ort, label: Ort, widget: string, required: false }
+              - { name: zeit, label: Uhrzeit, widget: string, required: false, hint: "z. B. 14:11 Uhr" }
+              - { name: vorlaeufig, label: "Noch nicht bestätigt (zeigt „vorläufig“)", widget: boolean, default: false, required: false }
+
+      - name: ansprechpartner
+        label: Ansprechpartner
+        file: content/ansprechpartner.json
+        fields:
+          - { name: einleitung, label: Einleitungstext, widget: string }
+          - name: liste
+            label: Ansprechpartner
+            label_singular: Ansprechpartner
+            widget: list
+            summary: "{{fields.bereich}}: {{fields.name}}"
+            fields:
+              - { name: bereich, label: Bereich, widget: string, hint: "z. B. Zugleitung, Kasse, Tanzgruppen" }
+              - { name: name, label: Name, widget: string }
+              - { name: email, label: E-Mail, widget: string, required: false }
+              - { name: telefon, label: Telefon, widget: string, required: false }
+              - { name: info, label: Wofür zuständig, widget: string, required: false }
+              - { name: unvollstaendig, label: "Angaben noch unvollständig (zeigt Hinweis)", widget: boolean, default: false, required: false }
+
+      - name: dokumente
+        label: Dokumente
+        file: content/dokumente.json
+        media_folder: /dokumente
+        public_folder: /dokumente
+        fields:
+          - { name: einleitung, label: Einleitungstext, widget: string }
+          - name: liste
+            label: Dokumente
+            label_singular: Dokument
+            widget: list
+            summary: "{{fields.titel}}"
+            fields:
+              - { name: titel, label: Titel, widget: string }
+              - { name: beschreibung, label: Beschreibung, widget: text }
+              - { name: datei, label: PDF-Datei, widget: file, required: false, hint: "Leer lassen = „folgt in Kürze“." }
+              - { name: hinweis, label: Hinweis (wenn keine Datei), widget: string, required: false }
+
+      - name: ueber-uns
+        label: Über uns
+        file: content/ueber-uns.json
+        fields:
+          - name: absaetze
+            label: Textabsätze
+            label_singular: Absatz
+            widget: list
+            fields:
+              - { name: text, label: Text, widget: text }
+          - name: zahlen
+            label: Drei Kennzahlen
+            widget: list
+            max: 3
+            fields:
+              - { name: wert, label: Wert, widget: string }
+              - { name: label, label: Beschriftung, widget: string }
+
+      - name: verein
+        label: Verein & Kontakt
+        file: content/verein.json
+        fields:
+          - { name: name, label: Vereinsname, widget: string }
+          - { name: kurz, label: Kurzname, widget: string }
+          - { name: motto, label: Sessionsmotto (groß auf der Startseite), widget: string }
+          - { name: mottoHinweis, label: Kleine Zeile über dem Motto, widget: string, required: false, hint: "z. B. Sessionsmotto 2026/2027" }
+          - { name: zugMotto, label: Zug-Motto (im Fuß der Seite), widget: string, required: false }
+          - { name: ordenBild, label: Bild des Sessionsordens, widget: image, required: false }
+          - { name: untertitel, label: Untertitel im Kopf, widget: string }
+          - { name: email, label: Allgemeine E-Mail, widget: string }
+          - { name: instagram, label: Instagram-Name (ohne @), widget: string }
+          - { name: anschrift, label: Anschrift (mehrzeilig), widget: text }
+          - { name: vorstand, label: Vorstand (Namen, durch Komma getrennt), widget: string }
+          - { name: register, label: Vereinsregister, widget: string }
+          - { name: finanzamt, label: Finanzamt / Steuernummer, widget: string }
+          - name: konten
+            label: Spendenkonten
+            widget: list
+            fields:
+              - { name: bank, label: Bank, widget: string }
+              - { name: iban, label: IBAN, widget: string }
+              - { name: bic, label: BIC, widget: string }
+
+      - name: impressum
+        label: Impressum & Datenschutz
+        file: content/impressum.json
+        fields:
+          - { name: verantwortlich, label: Verantwortlich, widget: string }
+          - { name: hosting, label: Hosting-Anbieter (für Datenschutz), widget: string }
+          - { name: datenschutzZusatz, label: Zusätzlicher Datenschutztext, widget: text, required: false }
