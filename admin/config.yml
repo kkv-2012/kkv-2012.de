@@ -3,7 +3,7 @@
 # Nur die Zeile "repo" muss bei der Einrichtung angepasst werden.
 backend:
   name: github
-  repo: VEREINS-GITHUB-NAME/kkv-2012.de   # <- anpassen: GitHub-Benutzer/Repository
+  repo: VEREINS-GITHUB-NAME/kkv-2012   # <- anpassen: GitHub-Benutzer/Repository
   branch: main
   base_url: https://api.netlify.com
 
