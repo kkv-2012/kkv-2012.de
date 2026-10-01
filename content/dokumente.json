@@ -2,6 +2,18 @@
   "einleitung": "Alle Formulare als PDF – am Bildschirm ausfüllbar oder zum Ausdrucken. Ausgefüllte Formulare bitte per E-Mail an die zuständige Ansprechpartnerin oder den Ansprechpartner senden.",
   "liste": [
     {
+      "titel": "Mitgliedsantrag",
+      "beschreibung": "Antrag auf Mitgliedschaft im KKV – Jahresbeitrag 50 Euro, Einzug per SEPA-Lastschrift. Ausgefüllt bitte per E-Mail an die Mitgliederbetreuung.",
+      "datei": "/dokumente/KKV_Mitgliedsantrag.pdf",
+      "hinweis": ""
+    },
+    {
+      "titel": "Förderantrag",
+      "beschreibung": "Beitritt als Förderer des KKV – Unterstützung unserer Brauchtumsarbeit mit einem Jahresbeitrag von 15 Euro. Ausgefüllt bitte per E-Mail an die Mitgliederbetreuung.",
+      "datei": "/dokumente/KKV_Foerderantrag.pdf",
+      "hinweis": ""
+    },
+    {
       "titel": "Anzeigenbestellung Sessionsheft",
       "beschreibung": "Auftragsformular für eine Anzeige im Sessionsheft 2026/2027 – 1/1-, 1/2- oder 1/3-Seite, farbig oder schwarz-weiß zum gleichen Preis.",
       "datei": "/dokumente/KKV_Anzeigenauftrag_Sessionsheft_2026-27.pdf",
@@ -18,12 +30,6 @@
       "beschreibung": "Das aktuelle Sessionsheft zum Blättern – mit Programm, Grußworten und unseren Anzeigenpartnern.",
       "datei": "",
       "hinweis": "Erscheint zur Sessionseröffnung im November 2026."
-    },
-    {
-      "titel": "Mitgliedsantrag",
-      "beschreibung": "Antrag auf Mitgliedschaft im KKV – aktives, passives oder Jugendmitglied.",
-      "datei": "",
-      "hinweis": "Formular folgt in Kürze. Bis dahin: E-Mail an die Mitgliederbetreuung."
     },
     {
       "titel": "Zuganmeldung für Gruppen",
