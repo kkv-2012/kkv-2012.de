@@ -4,7 +4,7 @@
     {
       "bereich": "1. Vorsitzender",
       "name": "Peter Adelt",
-      "email": "peter.adelt@web.de",
+      "email": "peter@kkv-2012.de",
       "telefon": "",
       "info": "Vereinsleitung, Sessionsheft und Anzeigen, allgemeine Anfragen.",
       "unvollstaendig": false
@@ -12,7 +12,7 @@
     {
       "bereich": "2. Vorsitzender",
       "name": "André van Herpt",
-      "email": "andrevanherpt@yahoo.de",
+      "email": "affa@kkv-2012.de",
       "telefon": "",
       "info": "Stellvertretung, Veranstaltungen.",
       "unvollstaendig": false
@@ -20,7 +20,7 @@
     {
       "bereich": "Kassiererin",
       "name": "Lisa Spiegel",
-      "email": "lisa.spiegel96@yahoo.com",
+      "email": "lisa@kkv-2012.de",
       "telefon": "",
       "info": "Kasse, Spenden, Zuwendungsbestätigungen, Rechnungen.",
       "unvollstaendig": false
@@ -28,7 +28,7 @@
     {
       "bereich": "Mitgliederbetreuung / Geschäftsführung",
       "name": "Sebastian Biesenbach",
-      "email": "sebastian.biesenbach@gmail.com",
+      "email": "biesi@kkv-2012.de",
       "telefon": "",
       "info": "Mitgliedsanträge, Beiträge, Adressänderungen.",
       "unvollstaendig": false
@@ -36,7 +36,7 @@
     {
       "bereich": "Zugleitung",
       "name": "Robert Bechtel",
-      "email": "robert.bechtel@online.de",
+      "email": "robert@kkv-2012.de",
       "telefon": "0157 57229780",
       "info": "Anmeldung von Gruppen und Wagen zum Kürtener Karnevalszug, Zugordnung.",
       "unvollstaendig": false
@@ -44,9 +44,33 @@
     {
       "bereich": "Sessionsheft & Anzeigen",
       "name": "Peter Adelt",
-      "email": "peter.adelt@web.de",
+      "email": "info@kkv-2012.de",
       "telefon": "",
       "info": "Anzeigenaufträge, Druckvorlagen, Redaktion des Sessionshefts.",
+      "unvollstaendig": false
+    },
+    {
+      "bereich": "Werbung, Spenden & Sponsoring",
+      "name": "Timo",
+      "email": "timo@kkv-2012.de",
+      "telefon": "",
+      "info": "Anzeigen im Sessionsheft, Spenden, Sponsoring und Unterstützung durch Unternehmen.",
+      "unvollstaendig": false
+    },
+    {
+      "bereich": "Werbung, Spenden & Sponsoring",
+      "name": "Frank",
+      "email": "frank@kkv-2012.de",
+      "telefon": "",
+      "info": "Anzeigen im Sessionsheft, Spenden, Sponsoring und Unterstützung durch Unternehmen.",
+      "unvollstaendig": false
+    },
+    {
+      "bereich": "Werbung, Spenden & Sponsoring",
+      "name": "Sam Schumacher",
+      "email": "sam@kkv-2012.de",
+      "telefon": "",
+      "info": "Anzeigen im Sessionsheft, Spenden, Sponsoring und Unterstützung durch Unternehmen.",
       "unvollstaendig": false
     }
   ]
