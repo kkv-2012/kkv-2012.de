@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Fotos hochladen | KKV Kürten</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Outfit:wght@500;700;800&family=Source+Sans+3:wght@400;600;700&display=swap">
+<style>
+:root{--bg:#FFFFFF;--bg2:#F8F4F8;--ink:#1E1523;--muted:#6E6172;--line:#E9DCE7;--v:#7A2A6E;--v2:#A2479A;--v-deep:#4E1A48;--tint:#F5ECF4;--on-v:#FFFFFF;--card:#FFFFFF;--shadow:0 12px 32px rgba(78,26,72,.10);--r:18px}
+@media (prefers-color-scheme:dark){:root{--bg:#17111A;--bg2:#1F1723;--ink:#F4ECF3;--muted:#B7A8B8;--line:#3A2C3B;--v:#C56BBB;--v2:#D98AD0;--v-deep:#2A1428;--tint:#2A1F2C;--on-v:#17111A;--card:#211923;--shadow:0 12px 32px rgba(0,0,0,.4)}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:"Source Sans 3",system-ui,-apple-system,"Segoe UI",Arial,sans-serif;font-size:18px;line-height:1.55}
+a{color:var(--v)}
+h1,h2{font-family:"Outfit",system-ui,sans-serif;margin:0 0 .35em;line-height:1.1}
+h1{font-size:clamp(34px,6vw,56px);font-weight:800}
+p{margin:0 0 1em;max-width:62ch}
+.wrap{max-width:760px;margin:0 auto;padding:0 20px}
+.top{border-bottom:1px solid var(--line)}
+.top .wrap{display:flex;align-items:center;gap:12px;min-height:74px}
+.top a{display:flex;align-items:center;gap:12px;text-decoration:none;color:var(--ink);font-family:"Outfit",sans-serif;font-weight:700}
+.hero{background:linear-gradient(135deg,var(--v-deep),var(--v) 60%,var(--v2));color:#fff;padding:48px 0}
+.hero h1{color:#fff}.hero p{color:rgba(255,255,255,.88);font-size:20px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:var(--r);box-shadow:var(--shadow);padding:28px;margin:-28px 0 56px;position:relative}
+label.f{display:block;font-weight:700;margin:0 0 16px}
+label.f input{display:block;width:100%;margin-top:6px;padding:12px 14px;font:inherit;border:1px solid var(--line);border-radius:12px;background:var(--bg);color:var(--ink)}
+.chk{display:flex;gap:12px;align-items:flex-start;margin:14px 0;padding:14px;border:1px solid var(--line);border-radius:12px;background:var(--bg2)}
+.chk input{width:22px;height:22px;margin-top:3px;accent-color:var(--v);flex:none}
+.small{font-size:15px;color:var(--muted)}
+.btn{display:inline-flex;background:var(--v);color:var(--on-v);text-decoration:none;font-weight:700;padding:14px 26px;border-radius:999px;border:0;cursor:pointer;font-size:18px;font-family:inherit}
+.btn:hover{filter:brightness(1.07)}
+.hp{position:absolute;left:-9999px}
+:focus-visible{outline:3px solid #F2B705;outline-offset:3px;border-radius:6px}
+footer{border-top:1px solid var(--line);padding:24px 0;color:var(--muted);font-size:15px}
+</style>
+</head>
+<body>
+<header class="top"><div class="wrap"><a href="/"><span>KKV Kürten</span></a></div></header>
+<div class="hero"><div class="wrap">
+<h1>Deine Fotos für unsere Session</h1>
+<p>Du hast Bilder oder Videos vom Zug, von Sitzungen oder aus dem Vereinsleben? Wir freuen uns darauf. Bitte bestätige vorab kurz, wie wir sie verwenden dürfen. Das gilt für jeden Upload, egal ob ein Bild oder fünfzig. Danach bekommst du den Upload Link.</p>
+</div></div>
+<main class="wrap"><form class="card" name="foto-einverstaendnis" method="POST" action="/foto-upload-danke.html" data-netlify="true" netlify-honeypot="bot-feld">
+<input type="hidden" name="form-name" value="foto-einverstaendnis">
+<p class="hp"><label>Nicht ausfüllen <input name="bot-feld"></label></p>
+<label class="f">Vorname<input name="vorname" required autocomplete="given-name"></label>
+<label class="f">Nachname<input name="nachname" required autocomplete="family-name"></label>
+<label class="f">Deine E-Mail Adresse<input type="email" name="email" required autocomplete="email"></label>
+<label class="chk"><input type="checkbox" name="rechte" value="ja" required><span>Ich habe die Aufnahmen selbst gemacht oder besitze die Rechte daran.</span></label>
+<label class="chk"><input type="checkbox" name="nutzung" value="ja" required><span>Ich erlaube dem Kürtener Karnevalsverein von 2012 e.V., die hochgeladenen Aufnahmen zu veröffentlichen und für seine Vermarktung und Öffentlichkeitsarbeit zu nutzen, zum Beispiel auf der Webseite, bei Instagram, im Sessionsheft, auf Plakaten und in der Werbung für Sponsoren und Veranstaltungen.</span></label>
+<label class="chk"><input type="checkbox" name="personen" value="ja" required><span>Erkennbare Personen auf den Aufnahmen sind mit der Veröffentlichung einverstanden. Bei Kindern und Jugendlichen unter 18 Jahren liegt das Einverständnis der Eltern vor.</span></label>
+<p class="small">Du kannst deine Einwilligung jederzeit mit Wirkung für die Zukunft widerrufen. Eine E-Mail an <a href="mailto:info@kkv-2012.de">info@kkv-2012.de</a> genügt, dann entfernen wir die Aufnahmen. Wir speichern Vorname, Nachname, E-Mail Adresse und Zeitpunkt deiner Bestätigung als Nachweis und verwenden sie nur dafür.</p>
+<button class="btn" type="submit">Bestätigen und weiter zum Upload</button>
+</form></main>
+<footer><div class="wrap">Kürtener Karnevalsverein von 2012 e.V. · <a href="/#kontakt">Impressum und Datenschutz</a></div></footer>
+</body></html>
