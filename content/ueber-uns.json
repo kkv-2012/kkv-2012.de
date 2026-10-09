@@ -4,10 +4,10 @@
       "text": "Der Kürtener Karnevalsverein von 2012 e.V. – kurz KKV – wurde gegründet, um den Karneval in Kürten und seinen Ortsteilen lebendig zu halten. Herzstück ist der Kürtener Karnevalszug, der jedes Jahr am Karnevalssamstag durch den Ort zieht."
     },
     {
-      "text": "Neben dem Zug gibt es rund um die Session weitere Aktionen und Veranstaltungen, über die wir auf Instagram und hier auf der Seite informieren. Getragen wird all das von ehrenamtlichen Helferinnen und Helfern, unseren Mitgliedern und Förderern sowie den Unternehmen aus der Region, die uns mit Anzeigen im Sessionsheft und Spenden unterstützen."
+      "text": "Neben dem Zug gibt es rund um die Session weitere Aktionen und Veranstaltungen, über die wir auf Instagram und hier auf der Seite informieren. Getragen wird all das von ehrenamtlichen Helferinnen und Helfern, unseren Mitgliedern sowie den Unternehmen aus der Region, die uns mit Anzeigen im Sessionsheft und Spenden unterstützen."
     },
     {
-      "text": "Wer mitmachen möchte – als Mitglied, als Förderer, im Wagenbau oder im Helferteam – ist herzlich willkommen. Mitgliedsantrag und Förderantrag stehen unter Dokumente bereit."
+      "text": "Wer mitmachen möchte – als Mitglied, im Wagenbau oder im Helferteam – ist herzlich willkommen. Alles kann, nichts muss: Bei uns lebt jede und jeder die Mitgliedschaft so, wie es passt. Der Mitgliedsantrag steht unter Dokumente bereit."
     }
   ],
   "zahlen": [
@@ -16,12 +16,16 @@
       "label": "gegründet"
     },
     {
-      "wert": "06.02.2027",
-      "label": "Karnevalszug Kürten"
+      "wert": "100+",
+      "label": "Mitglieder"
     },
     {
-      "wert": "11.11.",
+      "wert": "11.11.2026",
       "label": "Sessionseröffnung"
+    },
+    {
+      "wert": "06.02.2027",
+      "label": "Karnevalszug Kürten"
     }
   ]
 }

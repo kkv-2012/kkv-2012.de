@@ -2,6 +2,13 @@
   "einleitung": "Die Termine der Session 2026/2027 werden nach und nach ergänzt. Aktuelles gibt es immer zuerst auf Instagram.",
   "liste": [
     {
+      "datum": "2026-11-11",
+      "titel": "Sessionseröffnung",
+      "ort": "Landgasthof zur alten Ulme",
+      "zeit": "ab 17:11 Uhr",
+      "vorlaeufig": false
+    },
+    {
       "datum": "2027-02-06",
       "titel": "Kürtener Karnevalszug",
       "ort": "Zugweg durch Kürten",
