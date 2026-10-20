@@ -1,0 +1,76 @@
+{
+  "titel": "Unsere WhatsApp-Community",
+  "einleitung": "Der direkte Draht in den Verein: Hier bekommst du alle Infos vom Vorstand, sagst zu Terminen zu und packst in den Bereichen mit an, die dir Spaß machen. Niemand muss überall dabei sein, aber überall freuen wir uns über Verstärkung.",
+  "link": "https://chat.whatsapp.com/D8ChAzxAdd8EPdM6IDdYh8",
+  "buttonText": "Beitritt anfragen",
+  "beitritt": "Die Community ist für Mitglieder des KKV. Über den Button fragst du den Beitritt zu unserer Ankündigungsgruppe an. Ein Admin bestätigt dich, sobald wir dich als Mitglied zuordnen konnten.",
+  "startText": "Infos vom Vorstand, Termine mit einem Tipp zusagen und mitmachen, wo du Lust hast. Für alle Mitglieder des KKV.",
+  "schritte": [
+    {
+      "text": "Button antippen und in WhatsApp „Beitritt anfragen“ wählen."
+    },
+    {
+      "text": "Ein Admin prüft deine Anfrage und schaltet dich frei."
+    },
+    {
+      "text": "Oben auf den Community-Namen „KKV von 2012 e.V.“ tippen und den Gruppen beitreten, die dich interessieren."
+    },
+    {
+      "text": "Unsere Termine findest du unter „Ereignisse“. Antippen und zusagen, fertig."
+    }
+  ],
+  "gruppen": [
+    {
+      "name": "Ankündigungen",
+      "text": "Offizielle Infos und Termine vom Vorstand. Hier schreiben nur Admins, damit nichts untergeht."
+    },
+    {
+      "name": "KKV-Mitglieder",
+      "text": "Unser Treffpunkt für alle: Fragen, Austausch, Abstimmungen, Karten für Proklamationen und Infos zur Vereinskleidung."
+    },
+    {
+      "name": "Ideenschmiede",
+      "text": "Ideen für Aktionen und Veranstaltungen, von der Sessionseröffnung in der Hofburg bis zur Glühweinwanderung „Jeck im Advent“."
+    },
+    {
+      "name": "Wagenbau",
+      "text": "Unsere Zugwagen fit machen: begutachten, reparieren, streichen und für den TÜV vorbereiten. Handwerkliches Geschick hilft, gute Laune reicht auch."
+    },
+    {
+      "name": "Zug-Orga",
+      "text": "Alles rund um den Kürtener Karnevalszug: Zugweg, Genehmigungen, Versicherung, Sanitätsdienst und Security."
+    },
+    {
+      "name": "Werbung / Spenden",
+      "text": "Anzeigen im Sessionsheft, Spenden, Sponsoring und Werbung für den Verein, zum Beispiel Banner im Ort."
+    },
+    {
+      "name": "Vereinswesen",
+      "text": "Wie wir als Verein auftreten und arbeiten: Ornat und Vereinskleidung, Merchandise, ein einheitlicher Auftritt und neue digitale Abläufe."
+    }
+  ],
+  "regeln": [
+    {
+      "text": "Freundlich und respektvoll miteinander, auch wenn es mal hoch hergeht."
+    },
+    {
+      "text": "Keine Werbung und keine Kettenbriefe."
+    },
+    {
+      "text": "Fotos von anderen nur teilen, wenn die Abgebildeten einverstanden sind."
+    },
+    {
+      "text": "In den Ankündigungen sehen nur die Admins deine Telefonnummer. In den Gruppen, denen du beitrittst, sehen sie auch die anderen Mitglieder der Gruppe."
+    }
+  ],
+  "kontakte": [
+    {
+      "name": "Sam Schumacher",
+      "email": "sam@kkv-2012.de"
+    },
+    {
+      "name": "Sebastian Biesenbach",
+      "email": "biesi@kkv-2012.de"
+    }
+  ]
+}
