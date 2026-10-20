@@ -20,6 +20,45 @@ collections:
     label: Inhalte der Webseite
     files:
 
+      - name: community
+        label: "WhatsApp-Community"
+        file: content/community.json
+        fields:
+          - { name: titel, label: Überschrift, widget: string }
+          - { name: einleitung, label: Einleitungstext, widget: text }
+          - { name: link, label: Einladungslink (Ankündigungsgruppe), widget: string, pattern: ['^https://chat\.whatsapp\.com/', 'Bitte einen Link beginnend mit https://chat.whatsapp.com/ eintragen'], hint: "In WhatsApp: Ankündigungen → Gruppeninfo → Über Link einladen → Link kopieren." }
+          - { name: buttonText, label: Beschriftung des Buttons, widget: string }
+          - { name: beitritt, label: Hinweis zum Beitritt, widget: text }
+          - { name: startText, label: Kurztext auf der Startseite, widget: text }
+          - name: schritte
+            label: So geht's (Schritte)
+            label_singular: Schritt
+            widget: list
+            fields:
+              - { name: text, label: Text, widget: string }
+          - name: gruppen
+            label: Gruppen (die erste wird hervorgehoben)
+            label_singular: Gruppe
+            widget: list
+            summary: "{{fields.name}}"
+            fields:
+              - { name: name, label: Name der Gruppe, widget: string }
+              - { name: text, label: Worum geht es, widget: text }
+          - name: regeln
+            label: Spielregeln
+            label_singular: Regel
+            widget: list
+            fields:
+              - { name: text, label: Text, widget: string }
+          - name: kontakte
+            label: Ansprechpartner bei Fragen
+            label_singular: Ansprechpartner
+            widget: list
+            summary: "{{fields.name}}"
+            fields:
+              - { name: name, label: Name, widget: string }
+              - { name: email, label: E-Mail, widget: string }
+
       - name: instagram
         label: "Start: Instagram"
         file: content/instagram.json
