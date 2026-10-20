@@ -160,12 +160,6 @@ section.page.active{display:block;animation:fade .25s ease}
 :root[data-theme="dark"]{--wa-tint:#16271D}
 .btn.wa{background:var(--wa);color:var(--wa-ink);box-shadow:0 6px 18px rgba(37,211,102,.35)}
 .btn.wa svg{width:20px;height:20px;flex:none}
-.wa-band{margin-top:36px;display:grid;grid-template-columns:auto 1fr auto;gap:22px;align-items:center;background:var(--wa-tint);border:1px solid color-mix(in srgb,var(--wa) 40%,transparent);border-radius:var(--r);padding:22px 26px}
-.wa-band .ic{width:56px;height:56px;border-radius:16px;background:var(--wa);color:var(--wa-ink);display:grid;place-items:center}
-.wa-band .ic svg{width:30px;height:30px}
-.wa-band h3{margin:0 0 4px}
-.wa-band p{margin:0;color:var(--muted);font-size:16.5px}
-@media (max-width:700px){.wa-band{grid-template-columns:1fr}.wa-band .ic{display:none}}
 .cm-top{display:grid;grid-template-columns:1.2fr .8fr;gap:24px;align-items:stretch}
 .cm-join{background:linear-gradient(135deg,var(--v-deep),var(--v));color:#fff;border-radius:var(--r);padding:28px}
 .cm-join h3{color:#fff;font-size:24px}
@@ -188,17 +182,8 @@ section.page.active{display:block;animation:fade .25s ease}
 .cm-two{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:44px}
 @media (max-width:820px){.cm-top,.cm-two{grid-template-columns:1fr}}
 
-/* Karneval in Kürten */
-.kik{display:grid;grid-template-columns:1.3fr .7fr;gap:32px;align-items:start;padding-top:48px}
-.kik p{font-size:18px}
-.quick{display:grid;gap:10px}
-.quick a{display:flex;justify-content:space-between;align-items:center;gap:12px;background:var(--tint);border-radius:14px;padding:16px 18px;text-decoration:none;font-weight:700;color:var(--ink)}
-.quick a span{color:var(--v);font-size:20px}
-.quick a:hover{background:var(--line)}
-@media (max-width:820px){.kik{grid-template-columns:1fr}}
 #instaWidget{min-height:320px}
 .orden{height:auto;aspect-ratio:600/570}
-.wa-band h2{font-size:21px;margin:0 0 4px}
 
 footer{background:var(--v-deep);color:rgba(255,255,255,.8);padding:34px 0;font-size:15px}
 footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;align-items:center}
@@ -241,20 +226,6 @@ footer .motto{font-family:"Outfit",sans-serif;font-weight:700;color:var(--gold)}
       </div>
     </div>
     <div class="wrap">
-      <div class="wa-band"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 11.5a8 8 0 0 1-11.8 7L4 20l1.5-4.1A8 8 0 1 1 20 11.5z"/><path d="M9 10h6M9 13.5h4"/></svg></div><div><h2>Schon Mitglied? Komm in unsere WhatsApp-Community</h2><p id="waBandText">Infos vom Vorstand, Termine mit einem Tipp zusagen und mitmachen, wo du Lust hast. Für alle Mitglieder des KKV.</p></div><a class="btn wa" href="#community">Zur Community</a></div>
-      <div class="kik">
-        <div>
-          <span class="eyebrow">Fastelovend im Bergischen Land</span>
-          <h2>Karneval in Kürten</h2>
-          <p>Karneval in Kürten heißt: Kamelle, kölsche Tön und Gemeinschaft mitten im Bergischen Land. Der Kürtener Karnevalsverein von 2012 e.V. (KKV) organisiert den <strong>Kürtener Karnevalszug</strong>, der jedes Jahr am Karnevalssamstag durch den Ort zieht, und eröffnet die Session am 11.11. in seiner Hofburg, dem Landgasthof Zur alten Ulme.</p>
-          <p>Dazu kommen Aktionen wie Glühweinwanderung und Mitsingabend sowie Besuche bei befreundeten Karnevalsvereinen in Kürten und Umgebung. Ob als Jeck am Zugweg, mit eurer Fußgruppe oder eurem Wagen im Zug oder als Mitglied im Verein: Alle sind willkommen.</p>
-        </div>
-        <div class="quick" role="navigation" aria-label="Schnellzugriff">
-          <a href="#termine">Termine der Session<span aria-hidden="true">›</span></a>
-          <a href="#dokumente">Gruppe zum Zug anmelden<span aria-hidden="true">›</span></a>
-          <a href="#dokumente">Mitglied werden<span aria-hidden="true">›</span></a>
-        </div>
-      </div>
       <div class="section-head"><span class="eyebrow">Instagram</span><h2>Neues aus dem Verein</h2><p class="lead" id="instaLead"></p></div>
       <div id="instaWidget"></div>
     </div>
@@ -372,7 +343,6 @@ function render(C){
   // WhatsApp-Community
   const CM = C.community;
   if (CM) {
-    $('waBandText').textContent = CM.startText || '';
     $('cmTitel').textContent = CM.titel || 'WhatsApp-Community'; $('cmLead').textContent = CM.einleitung || '';
     $('cmBeitritt').textContent = CM.beitritt || ''; $('cmButton').textContent = CM.buttonText || 'Beitritt anfragen';
     if (/^https:\/\/chat\.whatsapp\.com\//.test(CM.link || '')) $('cmLink').href = CM.link; else $('cmLink').style.display = 'none';
