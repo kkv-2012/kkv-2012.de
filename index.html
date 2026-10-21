@@ -382,11 +382,11 @@ function render(C){
       const m = String(e.zeit || '').match(/(\d{1,2})[:.](\d{2})/);
       const start = m ? e.datum + 'T' + m[1].padStart(2,'0') + ':' + m[2] + ':00+01:00' : e.datum;
       const zug = /zug/i.test(e.titel);
-      return {"@type":"Event","name": zug ? e.titel + ' ' + e.datum.slice(0,4) : e.titel + ' | KKV Kürten', "startDate": start,
+      return {"@type":"Event","name": zug ? e.titel + ' ' + e.datum.slice(0,4) : e.titel + ' | KKV Kürten', "startDate": start, "endDate": start,
         "eventStatus":"https://schema.org/EventScheduled","eventAttendanceMode":"https://schema.org/OfflineEventAttendanceMode",
         "location": /ulme/i.test(e.ort || '') ? ULME : ORT, "image":["https://kkv-2012.de/bilder/og-kkv.jpg"],
         "description": zug ? 'Der Kürtener Karnevalszug zieht am Karnevalssamstag durch Kürten. Veranstalter: Kürtener Karnevalsverein von 2012 e.V.' : e.titel + ' des Kürtener Karnevalsvereins von 2012 e.V. in Kürten.',
-        "organizer":{"@type":"Organization","name":V.name,"url":"https://kkv-2012.de/"}, "url":"https://kkv-2012.de/#termine"};
+        "organizer":{"@type":"Organization","name":V.name,"url":"https://kkv-2012.de/"}, "performer":{"@type":"PerformingGroup","name":V.name}, "url":"https://kkv-2012.de/#termine"};
     });
     let tag = document.getElementById('ldEvents');
     if (!tag) { tag = document.createElement('script'); tag.type = 'application/ld+json'; tag.id = 'ldEvents'; document.head.appendChild(tag); }
