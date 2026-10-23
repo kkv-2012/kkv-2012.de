@@ -165,8 +165,11 @@ const EMPFAENGER = 'timo@kkv-2012.de'; // nur für die Vorschau; echte Empfänge
 const KOPF = Array.from({length:25},(_,i)=>(40+i)+' cm');
 const GROESSEN = ['XS','S','M','L','XL','XXL','3XL','4XL','5XL','6XL'];
 const SHOP = [
- {gruppe:'polos', titel:'Polos', text:'Schwarzes Polo, immer mit Vereinslogo, deinem Namen und KKV-Schriftzug. Bei mehreren Polos gibst du je Polo Größe und Namen an.', artikel:[
-   {id:'polo', name:'Polo schwarz', preis:38, bilder:['polo-vorne','polo-hinten'], proStueck:true, wide:true,
+ {gruppe:'polos', titel:'Polos', text:'Schwarzes Polo für Damen und Herren, immer mit Vereinslogo, deinem Namen und KKV-Schriftzug. Bei mehreren Polos gibst du je Polo Größe und Namen an.', artikel:[
+   {id:'polo-herren', name:'Polo schwarz Herren', preis:38, bilder:['polo-vorne','polo-hinten'], proStueck:true,
+    desc:'Inklusive Veredelung: Vereinslogo auf der linken Brust, dein Name darunter und „KKV von 2012 e.V.“ auf dem Rücken.',
+    felder:[{k:'Größe', werte:GROESSEN, pflicht:true},{k:'Name', text:'Name unter dem Logo', pflicht:true}]},
+   {id:'polo-damen', name:'Polo schwarz Damen', preis:38, bilder:['polo-vorne','polo-hinten'], proStueck:true,
     desc:'Inklusive Veredelung: Vereinslogo auf der linken Brust, dein Name darunter und „KKV von 2012 e.V.“ auf dem Rücken.',
     felder:[{k:'Größe', werte:GROESSEN, pflicht:true},{k:'Name', text:'Name unter dem Logo', pflicht:true}]}
  ]},
