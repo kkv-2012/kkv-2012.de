@@ -125,8 +125,8 @@ footer{border-top:1px solid var(--line);padding-block:24px;color:var(--muted);fo
 <main class="wrap">
 <div class="info">
   <div><b>Bestellanfrage</b>Unverbindlich. Wir bestätigen dir Verfügbarkeit, Preis und Abholtermin per E-Mail.</div>
-  <div><b>Abholung</b>Im Landgasthof Zur alten Ulme in Kürten. Den Termin sprechen wir mit dir ab.</div>
-  <div><b>Bezahlung</b>Nach unserer Bestätigung per Überweisung oder bar bei Abholung.</div>
+  <div><b>Abholung</b>Im Landgasthof Zur alten Ulme in Kürten. Wir melden uns bei dir, sobald deine Bestellung da ist.</div>
+  <div><b>Bezahlung</b>Vorerst bar bei Abholung. Weitere Zahlungsmöglichkeiten planen wir für die Zukunft.</div>
   <div><b>Ornat und Outfits</b>Was zu welchem Anlass gehört, steht im <a href="/dokumente/KKV_Vereinskleidung_Leitfaden.pdf" target="_blank" rel="noopener">Leitfaden Vereinskleidung</a>.</div>
 </div>
 
@@ -169,18 +169,18 @@ const SHOP = [
     desc:'Inklusive Veredelung: Vereinslogo auf der linken Brust, dein Name darunter und „KKV von 2012 e.V.“ auf dem Rücken.',
     felder:[{k:'Größe', werte:GROESSEN, pflicht:true},{k:'Name', text:'Name unter dem Logo', pflicht:true}]}
  ]},
- {gruppe:'schiffchen', titel:'Schiffchen und Fliege', text:'Das Schiffchen gehört zu jedem Outfit, vom Ornat bis zur Party, und wird für dich gefertigt. Zum Ornat der Herren gehört die lila Fliege.', artikel:[
+ {gruppe:'schiffchen', titel:'Schiffchen', text:'Das Schiffchen gehört zu jedem Outfit, vom Ornat bis zur Party. Es wird für dich gefertigt.', artikel:[
    {id:'schiff-klassisch', name:'Schiffchen klassisch', preis:198, bilder:['schiffchen'], desc:'Für Damen und Herren. Je Schiffchen bitte den Kopfumfang angeben.', proStueck:true,
     felder:[{k:'Kopfumfang', werte:KOPF, pflicht:true},{k:'Für', text:'Name der Person (optional)'}]},
-   {id:'schiff-spange', name:'Schiffchen Damen als Haarspange', preis:180, bilder:['schiffchen'], desc:'Die kleinere Variante für Damen, wird im Haar getragen. Einheitsgröße.'},
-   {id:'fliege', name:'Lila Fliege', preis:12, bilder:['fliege'], desc:'Lila Satin-Fliege für das Ornat.'}
+   {id:'schiff-spange', name:'Schiffchen Damen als Haarspange', preis:180, bilder:['schiffchen'], desc:'Die kleinere Variante für Damen, wird im Haar getragen. Einheitsgröße.'}
  ]},
- {gruppe:'fanartikel', titel:'Orden, Pin und Schals', text:'Unser Sessionsorden 2026/2027 „Morje es, wat mer drus maache“, der passende Pin und unsere Schals.', artikel:[
+ {gruppe:'fanartikel', titel:'Orden und Zubehör', text:'Unser Sessionsorden 2026/2027 „Morje es, wat mer drus maache“, der passende Pin, unsere Schals und die lila Fliege fürs Ornat.', artikel:[
    {id:'orden', name:'Sessionsorden 2026/2027', preis:20, bilder:['sessionsorden']},
    {id:'pin', name:'Sessionspin 2026/2027', preis:5, bilder:['sessionspin']},
    {id:'halsorden-mitglied', name:'Halsorden mit Pin, Mitgliederpreis', preis:11, bilder:['sessionsorden'], desc:'Nur für Mitglieder, einmal je Session.', nurMitglied:true, max:1},
    {id:'schal-standard', name:'Schal Standard', preis:10, bilder:['schal-standard']},
-   {id:'schal-logo', name:'Schal mit Logo', preis:15, bilder:['schal-logo']}
+   {id:'schal-logo', name:'Schal mit Logo', preis:15, bilder:['schal-logo']},
+   {id:'fliege', name:'Lila Fliege', preis:12, bilder:['fliege'], desc:'Lila Satin-Fliege für das Ornat.'}
  ]},
  {gruppe:'jacken', titel:'Jacken', text:'Wattierte Winterjacke in Grau, immer mit Vereinslogo, deinem Namen und KKV-Motiv. Bei mehreren Jacken gibst du je Jacke Größe und Namen an.', artikel:[
    {id:'jacke', name:'Winterjacke grau', preis:null, bilder:['jacke-vorne','jacke-hinten'], proStueck:true, wide:true, bald:true,
@@ -248,7 +248,7 @@ function sheetHTML(nr,rows,k){const sm=summe(rows);
   ${rows.map((r,i)=>(i==0||rows[i-1].a.gruppe!==r.a.gruppe?`<tr><td colspan="4" style="font-weight:700;color:#8A2E7C;padding-top:10px">${esc(GT[r.a.gruppe])}</td></tr>`:'')+`<tr><td>${r.menge}</td><td>${esc(r.a.name)}${r.a.proStueck?'<br><span style="color:#777">Stück '+r.stueck+'</span>':''}</td><td>${esc(r.det.join(', ')||'')}</td><td class="r">${esc(preisText(r))}</td></tr>`).join('')}
   <tr class="tot"><td colspan="3">Summe${sm.offen?' (ohne Kleidung, Preis folgt)':''}</td><td class="r">${eur(sm.t+sm.auf)}</td></tr></table>
   ${k.anmerkungen?`<div class="box"><b>Anmerkungen:</b> ${esc(k.anmerkungen)}</div>`:''}
-  <div class="box">Unverbindliche Bestellanfrage. Abholung im Landgasthof Zur alten Ulme. Bezahlung nach Bestätigung per Überweisung oder bar bei Abholung.</div>
+  <div class="box">Unverbindliche Bestellanfrage. Abholung im Landgasthof Zur alten Ulme. Bezahlung bar bei Abholung.</div>
   <h4>Interne Bearbeitung</h4><div class="int"><div>Bestätigt am<div class="ln"></div></div><div>Endpreis<div class="ln"></div></div><div>Bezahlt am / Art<div class="ln"></div></div><div>Abgeholt am<div class="ln"></div></div></div>
   <div class="ft">${esc(FUSS)}</div></div>`}
 function sheetPDF(nr,rows,k){const {jsPDF}=window.jspdf;const d=new jsPDF({unit:'mm',format:'a4'});const V=[138,46,124],G=[107,107,107];let y=20;
@@ -267,7 +267,7 @@ function sheetPDF(nr,rows,k){const {jsPDF}=window.jspdf;const d=new jsPDF({unit:
   d.setFont('helvetica','normal');
   const box=t=>{const l=d.splitTextToSize(t,162);d.setFillColor(243,232,241);d.roundedRect(20,y-4,170,l.length*4.5+4,1.5,1.5,'F');d.text(l,24,y+.5);y+=l.length*4.5+7};
   if(k.anmerkungen)box('Anmerkungen: '+k.anmerkungen);
-  box('Unverbindliche Bestellanfrage. Abholung im Landgasthof Zur alten Ulme. Bezahlung nach Bestätigung per Überweisung oder bar bei Abholung.');
+  box('Unverbindliche Bestellanfrage. Abholung im Landgasthof Zur alten Ulme. Bezahlung bar bei Abholung.');
   if(y>240){d.addPage();y=20}
   h('Interne Bearbeitung');d.setDrawColor(150);d.setLineWidth(.2);[['Bestätigt am',20],['Endpreis',108]].forEach(([t,x])=>{d.text(t,x,y+1);d.line(x,y+8,x+80,y+8)});y+=13;[['Bezahlt am / Art',20],['Abgeholt am',108]].forEach(([t,x])=>{d.text(t,x,y+1);d.line(x,y+8,x+80,y+8)});
   d.setFontSize(7.5);d.setTextColor(...G);d.setDrawColor(190);d.line(20,281,190,281);d.text(FUSS,105,285,{align:'center'});
