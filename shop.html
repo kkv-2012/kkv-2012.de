@@ -82,6 +82,7 @@ label.f.full{grid-column:1/-1}
 .small{font-size:15px;color:var(--muted)}
 .btn{display:inline-flex;background:var(--v);color:var(--on-v);text-decoration:none;font-weight:700;padding:14px 26px;border-radius:999px;border:0;cursor:pointer;font-size:18px;font-family:inherit}
 .btn:hover{filter:brightness(1.07)}.btn[disabled]{opacity:.5;cursor:not-allowed}
+.note{margin:14px 0;padding:14px 16px;border-radius:12px;background:var(--tint);border-left:4px solid var(--v);font-size:16px}.note b{display:block;font-family:var(--display);color:var(--v);margin-bottom:2px}
 .soon{margin-top:auto;align-self:flex-start;background:var(--tint);color:var(--v);font-weight:700;border-radius:999px;padding:6px 14px;font-size:16px}
 .prod.bald .pics img{opacity:.85}
 .err{color:var(--err);font-weight:700;margin-top:10px}
@@ -156,19 +157,19 @@ h3{font-size:16px}.price{font-size:18px}.price small{font-size:12px}
     <label class="f">Nachname<input id="f-nachname" name="nachname" required autocomplete="family-name"></label>
     <label class="f">E-Mail<input id="f-email" type="email" name="email" required autocomplete="email"></label>
     <label class="f">Telefon (optional)<input id="f-telefon" type="tel" name="telefon" autocomplete="tel"></label>
-    <label class="f full">Bist du Mitglied im KKV?<select id="f-mitglied" name="mitglied" required><option value="">Bitte wählen</option><option>Ja</option><option>Nein</option></select></label>
     <label class="f full">Anmerkungen (optional)<textarea id="f-anmerkungen" name="anmerkungen" rows="3"></textarea></label>
   </div>
   <p class="hp"><label>Nicht ausfüllen <input id="f-bot" name="bot-feld" tabindex="-1" autocomplete="off"></label></p>
   <label class="chkrow"><input id="f-ds" type="checkbox" name="datenschutz" value="ja" required><span>Ich bin einverstanden, dass der Kürtener Karnevalsverein von 2012 e.V. meine Angaben zur Bearbeitung dieser Bestellanfrage speichert und mich dazu kontaktiert. Die Daten werden nur dafür verwendet und nicht an Dritte weitergegeben. Mehr dazu unter <a href="/#kontakt">Datenschutz</a>.</span></label>
-  <p class="small">Dies ist eine unverbindliche Bestellanfrage, noch kein Kauf. Ein Vertrag kommt erst zustande, wenn wir deine Anfrage bestätigen. Preise für Schiffchen und Kleidung können je nach Bestellmenge und Hersteller leicht abweichen. Den endgültigen Preis nennen wir dir in der Bestätigung.</p>
+  <div class="note"><b>Unser Shop ist für Mitglieder da</b>Alle Artikel sind für Mitglieder des KKV gedacht. Wir schauen uns jede Anfrage kurz an und melden uns dann mit einer Bestätigung bei dir. Erst damit wird deine Bestellung verbindlich.</div>
+  <p class="small">Preise für Schiffchen und Kleidung können je nach Bestellmenge und Hersteller leicht abweichen. Den endgültigen Preis nennen wir dir in der Bestätigung.</p>
   <button class="btn" type="submit" id="send">Bestellanfrage senden</button>
   <div class="err" id="err" role="alert"></div>
 </form>
 <section id="out" hidden></section>
 </main>
 <!-- Formular für Netlify: Empfänger in Netlify unter Forms > bestellung > Notifications -->
-<div hidden><form name="bestellung" data-netlify="true" netlify-honeypot="bot-feld" enctype="multipart/form-data"><input name="bot-feld"><input name="bestellnummer"><input name="vorname"><input name="nachname"><input name="email"><input name="telefon"><input name="mitglied"><textarea name="anmerkungen"></textarea><input name="warengruppen"><textarea name="positionen"></textarea><input name="summe"><input name="datenschutz"><input type="file" name="bestellschein"></form></div>
+<div hidden><form name="bestellung" data-netlify="true" netlify-honeypot="bot-feld" enctype="multipart/form-data"><input name="bot-feld"><input name="bestellnummer"><input name="vorname"><input name="nachname"><input name="email"><input name="telefon"><textarea name="anmerkungen"></textarea><input name="warengruppen"><textarea name="positionen"></textarea><input name="summe"><input name="datenschutz"><input type="file" name="bestellschein"></form></div>
 <footer><div class="wrap">Kürtener Karnevalsverein von 2012 e.V. · <a href="/">Startseite</a> · <a href="/#kontakt">Impressum und Datenschutz</a></div></footer>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
 <script>
@@ -198,7 +199,8 @@ const SHOP = [
    {id:'orden', name:'Sessionsorden 2026/2027', preis:20, bilder:['sessionsorden']},
    {id:'pin', name:'Sessionspin 2026/2027', preis:5, bilder:['sessionspin']},
    {id:'brustorden', name:'Brustorden', preis:15, bilder:['brustorden'], desc:'Der Brustorden mit dem KKV-Wappen gehört zum Ornat. Er ist nicht an die Session gebunden, du schaffst ihn also nur einmal an.'},
-   {id:'halsorden-mitglied', name:'Halsorden mit Pin, Mitgliederpreis', preis:11, bilder:['sessionsorden'], desc:'Nur für Mitglieder, einmal je Session.', nurMitglied:true, max:1},
+   {id:'halsorden-mitglied', name:'Halsorden mit Pin, Mitgliederpreis', preis:11, bilder:['sessionsorden'], desc:'Einmal je Mitglied und Session. Gib bitte bei jedem Orden an, für welches Mitglied er ist.', nurMitglied:true, proStueck:true,
+    felder:[{k:'Mitglied', l:'Vor- und Nachname des Mitglieds', pflicht:true}]},
    {id:'schal-standard', name:'Schal Standard', preis:10, bilder:['schal-standard']},
    {id:'schal-logo', name:'Schal mit Logo', preis:15, bilder:['schal-logo']},
    {id:'fliege', name:'Lila Fliege', preis:12, bilder:['fliege'], desc:'Lila Satin-Fliege für das Ornat.'}
@@ -232,7 +234,7 @@ function renderPieces(id){const a=ART[id],s=S[id],box=document.querySelector(`[d
     const felder=(a.felder||[]).map(f=>{const fid=`p-${id}-${i}-${f.k.replace(/\W/g,'')}`;
       const ctl=f.werte?`<select id="${fid}" data-pf="${id}" data-i="${i}" data-k="${esc(f.k)}"><option value="">Bitte wählen</option>${f.werte.map(w=>`<option${p.f[f.k]===w?' selected':''}>${esc(w)}</option>`).join('')}</select>`
         :`<input id="${fid}" type="text" maxlength="30" autocomplete="off" data-pf="${id}" data-i="${i}" data-k="${esc(f.k)}" value="${esc(p.f[f.k]||'')}" placeholder="${esc(f.text||'')}">`;
-      return `<label class="half" for="${fid}">${esc(f.k)}${f.pflicht?'':' (optional)'}${f.preis?` <span class="small">+ ${eur(f.preis)}</span>`:''}${ctl}</label>`}).join('');
+      return `<label class="half" for="${fid}">${esc(f.l||f.k)}${f.pflicht?'':' (optional)'}${f.preis?` <span class="small">+ ${eur(f.preis)}</span>`:''}${ctl}</label>`}).join('');
     const ex=(a.extras||[]).length?`<div class="chks">${a.extras.map(x=>{const xid=`x-${id}-${i}-${x.k.replace(/\W/g,'')}`;return `<label for="${xid}"><input id="${xid}" type="checkbox" data-px="${id}" data-i="${i}" data-k="${esc(x.k)}"${p.x[x.k]?' checked':''}>${esc(x.k)} <span class="small">+ ${eur(x.preis)}</span></label>`}).join('')}</div>`:'';
     const pr='';
     return `<div class="piece"><span class="no">${nr}</span>${felder}${ex}${pr}</div>`}).join('')}
@@ -259,12 +261,12 @@ function update(){
 
 /* ---------- Bestellschein ---------- */
 function bestellnummer(){const d=new Date(),p=n=>String(n).padStart(2,'0');return `KKV-${d.getFullYear()}${p(d.getMonth()+1)}${p(d.getDate())}-${p(d.getHours())}${p(d.getMinutes())}-${Math.random().toString(36).slice(2,5).toUpperCase()}`}
-function kunde(){const f=$('#order');return {vorname:f.vorname.value.trim(),nachname:f.nachname.value.trim(),email:f.email.value.trim(),telefon:f.telefon.value.trim(),mitglied:f.mitglied.value,anmerkungen:f.anmerkungen.value.trim()}}
+function kunde(){const f=$('#order');return {vorname:f.vorname.value.trim(),nachname:f.nachname.value.trim(),email:f.email.value.trim(),telefon:f.telefon.value.trim(),anmerkungen:f.anmerkungen.value.trim()}}
 const FUSS='Kürtener Karnevalsverein von 2012 e.V. · Vorstand: Peter Adelt, Andre van Herpt, Lisa Spiegel · Abholung: Landgasthof Zur alten Ulme, Kürten';
 function datumText(){return new Date().toLocaleString('de-DE',{day:'2-digit',month:'2-digit',year:'numeric',hour:'2-digit',minute:'2-digit'})+' Uhr'}
 function sheetHTML(nr,rows,k){const sm=summe(rows);
   return `<div class="sheet"><div class="sh"><div><div class="t1">Kürtener Karnevalsverein<br>von 2012 e.V.</div><div class="t2">Bestellanfrage Shop</div></div><div class="meta">Nr. <b>${esc(nr)}</b><br>${esc(datumText())}</div></div>
-  <h4>Besteller</h4><div>${esc(k.vorname)} ${esc(k.nachname)} · ${esc(k.email)}${k.telefon?' · '+esc(k.telefon):''}<br>Mitglied: ${esc(k.mitglied)}</div>
+  <h4>Besteller</h4><div>${esc(k.vorname)} ${esc(k.nachname)} · ${esc(k.email)}${k.telefon?' · '+esc(k.telefon):''}</div>
   <h4>Bestellung</h4><table><tr><th>Menge</th><th>Artikel</th><th>Angaben</th><th class="r">Preis</th></tr>
   ${rows.map((r,i)=>(i==0||rows[i-1].a.gruppe!==r.a.gruppe?`<tr><td colspan="4" style="font-weight:700;color:#8A2E7C;padding-top:10px">${esc(GT[r.a.gruppe])}</td></tr>`:'')+`<tr><td>${r.menge}</td><td>${esc(r.a.name)}${r.a.proStueck?'<br><span style="color:#777">Stück '+r.stueck+'</span>':''}</td><td>${esc(r.det.join(', ')||'')}</td><td class="r">${esc(preisText(r))}</td></tr>`).join('')}
   <tr class="tot"><td colspan="3">Summe${sm.offen?' (ohne Kleidung, Preis folgt)':''}</td><td class="r">${eur(sm.t+sm.auf)}</td></tr></table>
@@ -278,7 +280,7 @@ function sheetPDF(nr,rows,k){const {jsPDF}=window.jspdf;const d=new jsPDF({unit:
   d.setFontSize(9.5);d.setTextColor(60);d.text('Nr. '+nr,190,y,{align:'right'});d.text(datumText(),190,y+5,{align:'right'});
   y+=18;d.setDrawColor(...V);d.setLineWidth(.7);d.line(20,y,190,y);y+=8;
   const h=t=>{d.setFont('helvetica','bold');d.setFontSize(11);d.setTextColor(...V);d.text(t,20,y);y+=5.5;d.setFont('helvetica','normal');d.setFontSize(10);d.setTextColor(30)};
-  h('Besteller');d.text(`${k.vorname} ${k.nachname} · ${k.email}${k.telefon?' · '+k.telefon:''}`,20,y);y+=5;d.text('Mitglied: '+k.mitglied,20,y);y+=9;
+  h('Besteller');d.text(`${k.vorname} ${k.nachname} · ${k.email}${k.telefon?' · '+k.telefon:''}`,20,y);y+=9;
   h('Bestellung');d.setFillColor(243,232,241);d.rect(20,y-4,170,6.5,'F');d.setFont('helvetica','bold');d.setFontSize(9);d.setTextColor(...V);
   d.text('Menge',22,y);d.text('Artikel',38,y);d.text('Angaben',95,y);d.text('Preis',188,y,{align:'right'});y+=6;d.setFont('helvetica','normal');d.setFontSize(9.5);d.setTextColor(30);
   rows.forEach((r,i)=>{if(i==0||rows[i-1].a.gruppe!==r.a.gruppe){if(y>250){d.addPage();y=20}d.setFont('helvetica','bold');d.setTextColor(...V);d.text(GT[r.a.gruppe],22,y+1);y+=6;d.setFont('helvetica','normal');d.setTextColor(30)}const art=d.splitTextToSize(r.a.name+(r.a.proStueck?' (Stück '+r.stueck+')':''),54),det=d.splitTextToSize(r.det.join(', '),62),pr=d.splitTextToSize(preisText(r),30);
@@ -308,8 +310,7 @@ function refreshPP(id){}
 function pruefen(rows){const f=$('#order');
   if(!rows.length)return 'Bitte wähle mindestens einen Artikel aus.';
   for(const id in ART){const a=ART[id];if(!a.proStueck)continue;for(const [i,p] of S[id].st.entries())for(const fd of a.felder||[])if(fd.pflicht&&!p.f[fd.k])return `Bitte gib bei „${a.name}“ für Stück ${i+1} an: ${fd.k}.`}
-  for(const r of rows)if(r.a.nurMitglied&&f.mitglied.value!=='Ja')return `„${r.a.name}“ gibt es nur für Mitglieder. Bitte bei Mitglied „Ja“ wählen oder den Artikel entfernen.`;
-  if(!f.checkValidity()){f.reportValidity();return 'Bitte fülle Name, E-Mail und Mitgliedschaft aus und bestätige den Datenschutzhinweis.'}
+  if(!f.checkValidity()){f.reportValidity();return 'Bitte fülle Name und E-Mail aus und bestätige den Datenschutzhinweis.'}
   return ''}
 function proGruppe(rows){const o={};rows.forEach(r=>(o[r.a.gruppe]=o[r.a.gruppe]||[]).push(r));return o}
 function posText(rs){return rs.map((r,i)=>(i==0||rs[i-1].a.gruppe!==r.a.gruppe?'['+GT[r.a.gruppe]+']\n':'')+`${zeile(r)}${r.det.length?' ('+r.det.join(', ')+')':''}: ${preisText(r)}`).join('\n')}
@@ -326,7 +327,7 @@ $('#order').addEventListener('submit',async e=>{e.preventDefault();const err=$('
   }catch(x){err.textContent='Das Senden hat nicht geklappt. Bitte versuch es noch einmal oder schreib uns an info@kkv-2012.de.';btn.disabled=false;btn.textContent='Bestellanfrage senden'}});
 function zeigeAusgabe(nr,gr,k){const out=$('#out');out.hidden=false;const rows=positionen(),sm=summe(rows);
   out.innerHTML=`<h2>So kommt die Bestellung an</h2><p>Jede Bestellanfrage kommt als eine E-Mail mit dem Bestellschein als PDF an. Vorschau für Bestellung ${esc(nr)}:</p><article class="mail"><div class="mh"><span>An: ${esc(EMPFAENGER)}</span><b>Neue Bestellanfrage über kkv-2012.de (Formular „bestellung“)</b><span class="small">Anhang: Bestellung_${esc(nr)}.pdf</span></div>
-  <dl class="mb"><dt>Bestellnummer</dt><dd>${esc(nr)}</dd><dt>Name</dt><dd>${esc(k.vorname+' '+k.nachname)}</dd><dt>E-Mail</dt><dd>${esc(k.email)}</dd><dt>Telefon</dt><dd>${esc(k.telefon||'–')}</dd><dt>Mitglied</dt><dd>${esc(k.mitglied)}</dd><dt>Warengruppen</dt><dd>${esc(Object.keys(gr).map(g=>GT[g]).join(', '))}</dd><dt>Positionen</dt><dd>${esc(posText(rows))}</dd><dt>Summe</dt><dd>${esc(eur(sm.t)+(sm.offen?' zzgl. Kleidung (Preis folgt)':''))}</dd>${k.anmerkungen?`<dt>Anmerkungen</dt><dd>${esc(k.anmerkungen)}</dd>`:''}</dl>
+  <dl class="mb"><dt>Bestellnummer</dt><dd>${esc(nr)}</dd><dt>Name</dt><dd>${esc(k.vorname+' '+k.nachname)}</dd><dt>E-Mail</dt><dd>${esc(k.email)}</dd><dt>Telefon</dt><dd>${esc(k.telefon||'–')}</dd><dt>Warengruppen</dt><dd>${esc(Object.keys(gr).map(g=>GT[g]).join(', '))}</dd><dt>Positionen</dt><dd>${esc(posText(rows))}</dd><dt>Summe</dt><dd>${esc(eur(sm.t)+(sm.offen?' zzgl. Kleidung (Preis folgt)':''))}</dd>${k.anmerkungen?`<dt>Anmerkungen</dt><dd>${esc(k.anmerkungen)}</dd>`:''}</dl>
   <div class="sheetwrap">${sheetHTML(nr,rows,k)}</div></article>`;
   out.scrollIntoView({behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth'})}
 
